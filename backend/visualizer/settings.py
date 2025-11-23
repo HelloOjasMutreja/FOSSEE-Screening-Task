@@ -58,8 +58,21 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 # CORS dev
 CORS_ALLOWED_ORIGINS = [
-  "http://localhost:3000",
+    "http://localhost:5173",  # Vite dev URL
+    "http://127.0.0.1:5173",
+    "http://localhost:3000",  # if you also run CRA on 3000
 ]
+
+from corsheaders.defaults import default_headers
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    'authorization',
+]
+
+# allow credentials if you ever use cookies/sessions
+CORS_ALLOW_CREDENTIALS = True
+
+# optional: log CORS (helpful for debugging)
+CORS_ORIGIN_ALLOW_ALL = False
 
 # DRF
 REST_FRAMEWORK = {
