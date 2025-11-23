@@ -1,0 +1,8 @@
+Django>=4.2,<5
+djangorestframework>=3.14
+pandas>=2.0
+python-dotenv>=1.0
+django-cors-headers>=4.0
+gunicorn>=20.1  # optional for deployment
+weasyprint>=59.0  # or reportlab, if you prefer. Used for PDF generation
+psycopg2-binary>=2.9  # optional if you plan to use PostgreSQL
