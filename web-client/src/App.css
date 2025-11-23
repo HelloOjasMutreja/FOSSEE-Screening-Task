@@ -1,42 +1,766 @@
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+    'Segoe UI', sans-serif;
+  line-height: 1.5;
+  color: #020617;
+  background: #e5e7eb;
+}
+
+/* Full-screen root */
+html,
+body,
 #root {
-  max-width: 1280px;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: radial-gradient(circle at top left, #eef2ff 0, #f9fafb 40%, #fdf2ff 100%);
+}
+
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.app-shell {
+  flex: 1;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 24px 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Header */
+
+.app-header {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.app-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0;
 }
+
+.app-subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.app-user-block {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.user-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  font-size: 0.85rem;
+}
+
+.user-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #22c55e;
+}
+
+.user-name {
+  color: #4b5563;
+}
+
+.pill-button {
+  border: none;
+  background: transparent;
+  font-size: 0.78rem;
+  color: #2563eb;
+  padding: 2px 4px;
+  cursor: pointer;
+}
+
+/* Layout */
+
+.app-main {
+  flex: 1;
+  display: flex;
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.2fr);
+  gap: 16px;
+  width: 100%;
+}
+
+.panel {
+  min-width: 0;
+}
+
+/* Cards */
 
 .card {
-  padding: 2em;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px 18px 18px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-.read-the-docs {
-  color: #888;
+.card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.card-subtitle {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Upload */
+
+.upload-card {
+  height: 100%;
+}
+
+.upload-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.file-input-label {
+  position: relative;
+  overflow: hidden;
+}
+
+.file-input-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  background: #f3f4f6;
+  cursor: pointer;
+}
+
+.file-input-hidden {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.upload-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.upload-file-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.upload-hint {
+  color: #9ca3af;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #e5e7eb;
+}
+
+.dot-success {
+  background: #22c55e;
+}
+
+/* Buttons */
+
+.btn {
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.btn-secondary {
+  background: #0f172a;
+  color: #f9fafb;
+}
+
+.btn-outline {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #374151;
+}
+
+/* Inputs */
+
+.text-input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  background: #f9fafb;
+  color: #020617;
+  outline: none;
+}
+
+.text-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.15);
+  background: #ffffff;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field-label {
+  font-size: 0.8rem;
+  color: #4b5563;
+}
+
+/* CSV Preview */
+
+.csv-preview {
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.csv-preview-header {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #374151;
+  display: flex;
+  justify-content: space-between;
+}
+
+.csv-preview-header span {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.csv-preview-table-wrapper {
+  max-height: 260px;
+  overflow: auto;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+.csv-preview-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.csv-preview-table th,
+.csv-preview-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #f3f4f6;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.csv-preview-table thead {
+  background: #f9fafb;
+  position: sticky;
+  top: 0;
+}
+
+/* Summary / Charts */
+
+.summary-card {
+  height: 100%;
+}
+
+.summary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.summary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.status-text {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.summary-content {
+  margin-top: 6px;
+  border-radius: 14px;
+  padding: 12px;
+  background: linear-gradient(135deg, #f9fafb 0%, #eef2ff 40%, #fdf2ff 100%);
+  border: 1px solid #e5e7eb;
+}
+
+.summary-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.meta-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #9ca3af;
+}
+
+.meta-value {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Insights */
+
+.insights-card {
+  margin-top: 10px;
+  border-radius: 12px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.insights-title {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 8px;
+}
+
+.insight-item {
+  font-size: 0.8rem;
+}
+
+.insight-label {
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+}
+
+.insight-value {
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.insight-sub {
+  color: #6b7280;
+  font-weight: 400;
+}
+
+/* Charts */
+
+.charts-grid {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr;        /* <-- single column, full width */
+  gap: 12px;
+  align-items: stretch;
+}
+
+.chart-card {
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 10px 12px;
+  background: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden; /* keeps internals from bleeding out */
+}
+
+.chart-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.chart-empty {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+/* Horizontal bar chart */
+
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bar-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 3fr) auto;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+}
+
+.bar-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bar-track {
+  height: 8px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: #2563eb;
+}
+
+.bar-value {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Pie chart – now vertical with legend, bigger chart */
+
+.pie-and-legend {
+  display: flex;
+  flex-direction: column;      /* <-- separate pie and legend */
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+}
+
+.pie-chart-container {
+  position: relative;
+  width: 220px;                /* <-- larger pie */
+  height: 220px;
+  flex-shrink: 0;
+}
+
+.pie-chart {
+  width: 100%;
+  height: 100%;
+}
+
+.pie-segment {
+  stroke: #f9fafb;
+  stroke-width: 0.5;
+}
+
+.pie-center-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pie-total {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.pie-caption {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9ca3af;
+}
+
+/* Color cycle reused for bars, pie & legend */
+
+.stacked-segment.seg-0,
+.legend-swatch.seg-0,
+.pie-segment.seg-0 {
+  background: #2563eb;
+  fill: #2563eb;
+}
+
+.stacked-segment.seg-1,
+.legend-swatch.seg-1,
+.pie-segment.seg-1 {
+  background: #f97316;
+  fill: #f97316;
+}
+
+.stacked-segment.seg-2,
+.legend-swatch.seg-2,
+.pie-segment.seg-2 {
+  background: #22c55e;
+  fill: #22c55e;
+}
+
+.stacked-segment.seg-3,
+.legend-swatch.seg-3,
+.pie-segment.seg-3 {
+  background: #a855f7;
+  fill: #a855f7;
+}
+
+.stacked-segment.seg-4,
+.legend-swatch.seg-4,
+.pie-segment.seg-4 {
+  background: #0ea5e9;
+  fill: #0ea5e9;
+}
+
+.stacked-segment.seg-5,
+.legend-swatch.seg-5,
+.pie-segment.seg-5 {
+  background: #eab308;
+  fill: #eab308;
+}
+
+/* Legend */
+
+.stacked-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 0;
+  font-size: 0.8rem;
+  max-height: 220px;          /* <-- more vertical space, but scroll if too long */
+  overflow-y: auto;
+  padding-right: 4px;
+  align-self: stretch;        /* take full width under pie */
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+}
+
+.legend-label {
+  flex: 1;
+  overflow-wrap: anywhere;    /* long names wrap instead of overflowing */
+}
+
+.legend-value {
+  color: #6b7280;
+}
+
+/* Raw JSON */
+
+.raw-json {
+  margin-top: 10px;
+}
+
+.raw-json summary {
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: #4b5563;
+}
+
+.raw-json pre {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  background: #020617;
+  color: #e5e7eb;
+  padding: 10px;
+  border-radius: 10px;
+  max-height: 260px;
+  overflow: auto;
+}
+
+.raw-json-left {
+  margin-top: 12px;
+}
+
+/* Alerts */
+
+.alert {
+  border-radius: 10px;
+  padding: 6px 8px;
+  font-size: 0.8rem;
+}
+
+.alert-error {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* Empty state */
+
+.empty-state {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* Modal */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal {
+  width: 100%;
+  max-width: 380px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px 16px 14px;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.modal-header p {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Responsive tweaks */
+
+@media (max-width: 900px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .layout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* charts already single column, nothing to change */
+}
+
+@media (max-width: 600px) {
+  .app-shell {
+    padding: 16px 10px 24px;
+  }
+
+  .card {
+    padding: 14px 12px 16px;
+  }
+
+  .app-title {
+    font-size: 1.2rem;
+  }
+
+  .pie-chart-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .pie-and-legend {
+    align-items: flex-start;
+  }
 }
